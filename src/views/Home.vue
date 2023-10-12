@@ -2,9 +2,9 @@
   <div class="home">
     <h1>HOME</h1>
     <button @click="logout(email, password)">Logout</button>
-    <li v-for="user in users">
-      {{ user.email }}
-    </li>
+    <div v-for="user in users">
+      <UserCard :user="user" />
+    </div>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
   import customAxios from '@/functions/axios/customAxios.js';
   import deleteTokenCookie from '@/functions/cookies/deleteTokenCookie.js';
   import router from '@/router/index.js';
+  import UserCard from '@/components/UserCard.vue';
 </script>
 
 <script>
@@ -39,5 +40,8 @@
         }
       }
     },
+    components: {
+      UserCard,
+    }
   };
 </script>
