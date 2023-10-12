@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Login from '../views/Login.vue';
+import Register from '../views/Register.vue';
 import Home from '../views/Home.vue';
 import getTokenCookie from '../functions/cookies/getAllCookies';
 
@@ -12,6 +13,11 @@ const router = createRouter({
       component: Login
     },
     {
+      path: '/register',
+      name: 'register',
+      component: Register
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
@@ -22,9 +28,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = getTokenCookie();
 
-  if (to.name !== 'login' && !token) {
+  const needsAuth = to.name === 'login' || to.name === 'register' ? false : true;
+
+  if (needsAuth && !token) {
     next({ name: 'login' });
-  } else if (to.name === 'login' && token) {
+  } else if (!needsAuth && token) {
     next({ name: 'home' });
   } else {
     next();

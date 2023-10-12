@@ -4,6 +4,10 @@
     <input type="text" v-model="email" placeholder="email" />
     <input type="text" v-model="password" placeholder="password" />
     <button @click="login(email, password)">Login</button>
+    <h2>
+      or 
+      <router-link to="/register">Sing Up</router-link>
+    </h2>
   </main>
 </template>
 
