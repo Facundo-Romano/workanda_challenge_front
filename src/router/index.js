@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Home from '../views/Home.vue';
+import NewUser from '../views/NewUser.vue';
 import getTokenCookie from '../functions/cookies/getAllCookies';
 
 const router = createRouter({
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/new-user',
+      name: 'new-user',
+      component: NewUser
     }
   ]
 });

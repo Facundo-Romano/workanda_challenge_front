@@ -2,8 +2,9 @@
   <div class="home">
     <h1>HOME</h1>
     <button @click="logout(email, password)">Logout</button>
-    <div v-for="user in users">
-      <UserCard :user="user" />
+    <button @click="createUser()">Add new user</button>
+    <div v-for="(user, index) in users">
+      <UserCard :user="user" :index="index" :updateUserLocally="updateUserLocally" :deleteUserLocally="deleteUserLocally" :logout="logout"/>
     </div>
   </div>
 </template>
@@ -24,6 +25,10 @@
     },
     mounted() {
       this.getUsers();
+      this.fetchInterval = setInterval(this.getUsers, 5000);
+    },
+    beforeUnmount() {
+      clearInterval(this.fetchInterval);
     },
     methods: {
       logout() {
@@ -38,7 +43,16 @@
         } catch (err) {
           console.log(err)
         }
-      }
+      },
+      updateUserLocally(index, email) {
+        this.users[index].email = email;
+      },
+      deleteUserLocally(index) {
+        this.users.splice(index, 1);
+      },
+      createUser() {
+        router.push('/new-user');
+      },
     },
     components: {
       UserCard,
