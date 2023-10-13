@@ -1,22 +1,24 @@
 <template>
     <main class="authContainer">
-      <img src="/blue_circle_logo.svg" alt="logo" class="logo"/>
-      <h1 class="authHeader">Register</h1>
-      <div class="authInputContainer" :class="{ authInputContainerError: invalidEmail || registerError }">
-        <EnvelopeIcon :error="invalidEmail || registerError ? true : false" :filled="email ? true: false"/>
-        <input class="authInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: invalidEmail || registerError }" placeholder="email" id="email"/>
+      <div class="authSubContainer">
+        <img src="/blue_circle_logo.svg" alt="logo" class="logo"/>
+        <h1 class="authHeader">Register</h1>
+        <div class="authInputContainer" :class="{ authInputContainerError: invalidEmail || registerError }">
+          <EnvelopeIcon :error="invalidEmail || registerError ? true : false" :filled="email ? true: false"/>
+          <input class="authInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: invalidEmail || registerError }" placeholder="email" id="email"/>
+        </div>
+        <label class="authErrorLabel" v-if="invalidEmail" for="email">Invalid email</label>
+        <div class="authInputContainer" :class="{ authInputContainerError: registerError }">
+          <LockIcon :error="registerError" :filled="password ? true: false"/>
+          <input class="authInput" type="password" v-model="password" @input="handleInputChange" :class="{ authError: registerError }" placeholder="password" id="password"/>
+        </div>
+        <p class="authErrorLabel" v-if="registerError">Incorrect credentials</p>
+        <button class="authButton" @click="register(email, password)">Register</button>
+        <h2 class="authText">
+          Already have an user 
+          <router-link class="link" to="/login">Sing In</router-link>
+        </h2>
       </div>
-      <label class="authErrorLabel" v-if="invalidEmail" for="email">Invalid email</label>
-      <div class="authInputContainer" :class="{ authInputContainerError: registerError }">
-        <LockIcon :error="registerError" :filled="password ? true: false"/>
-        <input class="authInput" type="password" v-model="password" @input="handleInputChange" :class="{ authError: registerError }" placeholder="password" id="password"/>
-      </div>
-      <p class="authErrorLabel" v-if="registerError">Incorrect credentials</p>
-      <button class="authButton" @click="register(email, password)">Register</button>
-      <h2 class="authText">
-        Already have an user 
-        <router-link class="link" to="/login">Sing In</router-link>
-      </h2>
       <RegisterBackground class="background"/>
     </main>
   </template>

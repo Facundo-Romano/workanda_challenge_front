@@ -6,6 +6,7 @@
   --dark-grey: #CDCDCD;
   --red: #f56262;
   --blue: #007ac7;
+  --green: #5ecea8;
 }
 
 @media (prefers-color-scheme: dark) {

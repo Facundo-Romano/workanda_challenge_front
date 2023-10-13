@@ -1,22 +1,24 @@
 <template>
   <main class="authContainer">
-    <img src="/blue_circle_logo.svg" alt="logo" class="logo"/>
-    <h1 class="authHeader">Login</h1>
-    <div class="authInputContainer" :class="{ authInputContainerError: invalidEmail || loginError }">
-      <EnvelopeIcon :error="invalidEmail || loginError ? true : false" :filled="email ? true: false"/>
-      <input class="authInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: invalidEmail || loginError }" placeholder="email" id="email"/>
+    <div class="authSubContainer">
+      <img src="/blue_circle_logo.svg" alt="logo" class="logo"/>
+      <h1 class="authHeader">Login</h1>
+      <div class="authInputContainer" :class="{ authInputContainerError: invalidEmail || loginError }">
+        <EnvelopeIcon :error="invalidEmail || loginError ? true : false" :filled="email ? true: false"/>
+        <input class="authInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: invalidEmail || loginError }" placeholder="email" id="email"/>
+      </div>
+      <label class="authErrorLabel" v-if="invalidEmail" for="email">Invalid email</label>
+      <div class="authInputContainer" :class="{ authInputContainerError: loginError }">
+        <LockIcon :error="loginError" :filled="password ? true: false"/>
+        <input class="authInput" type="password" v-model="password" @input="handleInputChange" :class="{ authError: loginError }" placeholder="password" id="password"/>
+      </div>
+      <p class="authErrorLabel" v-if="loginError">Incorrect credentials</p>
+      <button class="authButton" @click="login(email, password)">Login</button>
+      <h2 class="authText">
+        or 
+        <router-link class="link" to="/register">Sing Up</router-link>
+      </h2>
     </div>
-    <label class="authErrorLabel" v-if="invalidEmail" for="email">Invalid email</label>
-    <div class="authInputContainer" :class="{ authInputContainerError: loginError }">
-      <LockIcon :error="loginError" :filled="password ? true: false"/>
-      <input class="authInput" type="password" v-model="password" @input="handleInputChange" :class="{ authError: loginError }" placeholder="password" id="password"/>
-    </div>
-    <p class="authErrorLabel" v-if="loginError">Incorrect credentials</p>
-    <button class="authButton" @click="login(email, password)">Login</button>
-    <h2 class="authText">
-      or 
-      <router-link class="link" to="/register">Sing Up</router-link>
-    </h2>
     <LoginBackground class="background"/>
   </main>
 </template>

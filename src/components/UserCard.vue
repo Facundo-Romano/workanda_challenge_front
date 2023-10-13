@@ -1,22 +1,30 @@
 <template>
     <div class="userCardContainer">
-        <p>User</p>
-        <div v-if="edit" class="userCard">
-            <input type="text" v-model="email" placeholder="email" />
-            <button @click="save(index, user.id, email)">Save</button>
-            <button @click="setEdit(false)">Cancel</button>
+        <div class="userCardSubContainer">
+            <p class="userCardHeader">User {{ index }}</p>
+            <div v-if="!edit">
+                <PencilIcon class="userCardIcon" @click="setEdit(true)"/>
+                <DeleteIcon class="userCardIcon" @click="deleteUser(index, user.id)"/>
+            </div>
         </div>
-        <div v-else class="userCard">
-            <p>Id: {{ user.id }}</p>
-            <p>Email: {{ user.email }}</p>
-            <button @click="setEdit(true)">Edit</button>
-            <button @click="deleteUser(index, user.id)">Delete</button>
+        <div v-if="edit" class="userCardSecondarySubContainer">
+            <input class="userCardInput" type="text" v-model="email" placeholder="email" />
+            <div class="userCardButtonsContainer">
+                <button class="userCardSaveButton" @click="save(index, user.id, email)">Save</button>
+                <button class="userCardCancelButton" @click="setEdit(false)">Cancel</button>
+            </div>
+        </div>
+        <div v-else class="userCardSecondarySubContainer">
+            <p class="userCardText">Id: {{ user.id }}</p>
+            <p class="userCardText">Email: {{ user.email }}</p>
         </div>
     </div>
 </template>
   
 <script setup>
     import customAxios from '@/functions/axios/customAxios.js';
+    import PencilIcon from '@/components/svgs/PencilIcon.vue';
+    import DeleteIcon from '@/components/svgs/DeleteIcon.vue';
 </script>
 
 <script>
@@ -82,6 +90,10 @@
                     console.log(err);
                 }
             },
+        },
+        components: {
+            PencilIcon,
+            DeleteIcon
         }
     };
 </script>

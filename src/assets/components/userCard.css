@@ -1,8 +1,74 @@
 .userCardContainer {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 300px;
-    background-color: aqua;
+    width: 400px;
+    height: 170px;
+    background-color: var(--white);
+    box-shadow: 0px 0px 5px 2px var(--grey);
+    border-radius: 15px;
     margin: 50px;
+    padding: 20px 30px;
 }   
+
+.userCardHeader {
+    color: var(--black);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.userCardSubContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.userCardIcon{
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 10px;
+    cursor: pointer;
+}
+
+.userCardSecondarySubContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.userCardInput {
+    color: var(--black);
+    width: 95%;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    border-bottom-color: var(--blue); 
+}
+
+.userCardButtonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
+}
+
+.userCardSaveButton {
+    padding: 5px 15px;
+    background-color: var(--green);
+    border-radius: 10px;
+    color: var(--white);
+    margin: 0 15px 0 0;
+}
+
+.userCardCancelButton {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.userCardText {
+    color: var(--black);
+    font-size: 16px;
+}
