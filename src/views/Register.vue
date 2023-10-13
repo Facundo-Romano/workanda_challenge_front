@@ -1,8 +1,6 @@
 <template>
     <main>
       <h1>Register</h1>
-      <input type="text" v-model="name" placeholder="name" />
-      <input type="text" v-model="lastName" placeholder="last name" />
       <input type="text" v-model="email" placeholder="email" />
       <input type="text" v-model="password" placeholder="password" />
       <button @click="register(email, password)">Register</button>
@@ -17,9 +15,7 @@
     import customAxios from '@/functions/axios/customAxios.js';
     import setTokenCookie from '@/functions/cookies/setTokenCookie.js';
     import router from '@/router/index.js';
-  
-    const name = '';
-    const lastName = '';
+    
     const email = '';
     const password = '';
   </script>

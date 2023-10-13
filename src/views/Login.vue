@@ -17,6 +17,7 @@
       or 
       <router-link class="link" to="/register">Sing Up</router-link>
     </h2>
+    <LoginBackground class="background"/>
   </main>
 </template>
 
@@ -27,6 +28,7 @@
   import '@/assets/views/login.css';
   import EnvelopeIcon from '../components/icons/EnvelopeIcon.vue';
   import LockIcon from '../components/icons/LockIcon.vue';
+  import LoginBackground from '../components/icons/LoginBackground.vue';
 </script>
 
 <script>
@@ -82,7 +84,8 @@
     },
     components: {
       EnvelopeIcon,
-      LockIcon
+      LockIcon,
+      LoginBackground
     }
   };
 </script>
