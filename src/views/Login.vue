@@ -25,10 +25,10 @@
   import customAxios from '@/functions/axios/customAxios.js';
   import setTokenCookie from '@/functions/cookies/setTokenCookie.js';
   import router from '@/router';
-  import '@/assets/views/login.css';
-  import EnvelopeIcon from '../components/icons/EnvelopeIcon.vue';
-  import LockIcon from '../components/icons/LockIcon.vue';
-  import LoginBackground from '../components/icons/LoginBackground.vue';
+  import '@/assets/views/loginAndRegister.css';
+  import EnvelopeIcon from '@/components/icons/EnvelopeIcon.vue';
+  import LockIcon from '@/components/icons/LockIcon.vue';
+  import LoginBackground from '@/components/icons/LoginBackground.vue';
 </script>
 
 <script>
