@@ -1,11 +1,14 @@
 <template>
   <main class="homeContainer">
     <Navbar :logout="logout"/>
-    <div class="home">
-      <h1>HOME</h1>
-      <button @click="createUser()">Add new user</button>
-      <div v-for="(user, index) in users">
-        <UserCard :user="user" :index="index" :updateUserLocally="updateUserLocally" :deleteUserLocally="deleteUserLocally" :logout="logout"/>
+    <div class="homeSubContainer">
+      <h1 class="homeHeader">Users</h1>
+      <button @click="createUser()" class="addNewUserContainer">
+        <PlusIcon class="addNewUserIcon"/>
+        <p class="addNewUserText">Add new user</p>
+      </button>
+      <div class="userCardsContainer">
+        <UserCard v-for="(user, index) in users" :user="user" :index="index" :updateUserLocally="updateUserLocally" :deleteUserLocally="deleteUserLocally" :logout="logout"/>
       </div>
     </div>
   </main>
@@ -17,6 +20,7 @@
   import router from '@/router/index.js';
   import Navbar from '../components/Navbar.vue';
   import UserCard from '@/components/UserCard.vue';
+  import PlusIcon from '@/components/svgs/PlusIcon.vue';
 </script>
 
 <script>
@@ -59,7 +63,8 @@
     },
     components: {
       Navbar,
-      UserCard
+      UserCard,
+      PlusIcon
     }
   };
 </script>

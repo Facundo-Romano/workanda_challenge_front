@@ -2,13 +2,14 @@
 @import './views/loginAndRegister.css';
 @import './components/navbar.css';
 @import './views/home.css';
+@import './components/userCard.css';
 
 #app {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   margin: 0;
   padding: 0;

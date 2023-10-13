@@ -1,16 +1,17 @@
 <template>
-    <div v-if="edit" class="userCard">
+    <div class="userCardContainer">
         <p>User</p>
-        <input type="text" v-model="email" placeholder="email" />
-        <button @click="save(index, user.id, email)">Save</button>
-        <button @click="setEdit(false)">Cancel</button>
-    </div>
-    <div v-else class="userCard">
-        <p>User</p>
-        <p>Id: {{ user.id }}</p>
-        <p>Email: {{ user.email }}</p>
-        <button @click="setEdit(true)">Edit</button>
-        <button @click="deleteUser(index, user.id)">Delete</button>
+        <div v-if="edit" class="userCard">
+            <input type="text" v-model="email" placeholder="email" />
+            <button @click="save(index, user.id, email)">Save</button>
+            <button @click="setEdit(false)">Cancel</button>
+        </div>
+        <div v-else class="userCard">
+            <p>Id: {{ user.id }}</p>
+            <p>Email: {{ user.email }}</p>
+            <button @click="setEdit(true)">Edit</button>
+            <button @click="deleteUser(index, user.id)">Delete</button>
+        </div>
     </div>
 </template>
   
