@@ -1,4 +1,4 @@
-.main {
+.authContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,13 +19,13 @@
     margin: 50px 20px 20px 20px;
 }
 
-.h1 {
+.authHeader {
     font-size: 32px;
     font-weight: 700;
     margin: 20px 0;
 }
 
-.inputContainer {
+.authInputContainer {
     display: flex;
     min-width: 85%;
     margin: 30px 20px 0 20px;
@@ -36,11 +36,11 @@
     border-bottom-color: var(--dark-grey); 
 }
 
-.inputContainerError {
+.authInputContainerError {
     border-bottom-color: #f56262; 
 }
 
-.input {
+.authInput {
     margin: 0 15px;
     font-size: 14px;
     width: 100%;
@@ -48,24 +48,25 @@
     color: var(--black);
 }
 
-.input::placeholder {
+.authInput::placeholder {
     color: var(--dark-grey);
 }
-.error {
+
+.authError {
     color: #f56262;
 }
 
-.error::placeholder {
+.authError::placeholder {
     color: #f56262;
 }
 
-.errorLabel {
+.authErrorLabel {
     margin: 5px;
     font-size: 12px;
     color: #f56262;
 }
 
-.loginButton {
+.authButton {
     min-width: 85%;
     height: 50px;
     background-color: var(--blue);
@@ -75,12 +76,12 @@
     margin: 40px 0;
 }
 
-.h2 {
+.authText {
     display: flex;
     font-size: 14px;
 }
 
-.h2 a {
+.authText a {
     box-sizing: border-box;
     font-weight: normal;
     display: block;
@@ -91,8 +92,4 @@
     color: var(--blue);
     font-weight: 500;
     cursor: pointer;
-}
-
-.background {
-    z-index: -1;
 }

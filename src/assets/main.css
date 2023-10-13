@@ -1,4 +1,7 @@
 @import './base.css';
+@import './views/loginAndRegister.css';
+@import './components/navbar.css';
+@import './views/home.css';
 
 #app {
   display: flex;
@@ -6,6 +9,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -31,4 +35,8 @@ button {
 
 a {
   all: initial;
+}
+
+.background {
+  z-index: -1;
 }

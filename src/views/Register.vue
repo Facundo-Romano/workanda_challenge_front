@@ -1,19 +1,19 @@
 <template>
-    <main class="main">
+    <main class="authContainer">
       <img src="/blue_circle_logo.svg" alt="logo" class="logo"/>
-      <h1 class="h1">Register</h1>
-      <div class="inputContainer" :class="{ inputContainerError: invalidEmail || registerError }">
+      <h1 class="authHeader">Register</h1>
+      <div class="authInputContainer" :class="{ authInputContainerError: invalidEmail || registerError }">
         <EnvelopeIcon :error="invalidEmail || registerError ? true : false" :filled="email ? true: false"/>
-        <input class="input" type="text" v-model="email" @input="handleInputChange" :class="{ error: invalidEmail || registerError }" placeholder="email" id="email"/>
+        <input class="authInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: invalidEmail || registerError }" placeholder="email" id="email"/>
       </div>
-      <label class="errorLabel" v-if="invalidEmail" for="email">Invalid email</label>
-      <div class="inputContainer" :class="{ inputContainerError: registerError }">
+      <label class="authErrorLabel" v-if="invalidEmail" for="email">Invalid email</label>
+      <div class="authInputContainer" :class="{ authInputContainerError: registerError }">
         <LockIcon :error="registerError" :filled="password ? true: false"/>
-        <input class="input" type="password" v-model="password" @input="handleInputChange" :class="{ error: registerError }" placeholder="password" id="password"/>
+        <input class="authInput" type="password" v-model="password" @input="handleInputChange" :class="{ authError: registerError }" placeholder="password" id="password"/>
       </div>
-      <p class="errorLabel" v-if="registerError">Incorrect credentials</p>
-      <button class="loginButton" @click="register(email, password)">Register</button>
-      <h2 class="h2">
+      <p class="authErrorLabel" v-if="registerError">Incorrect credentials</p>
+      <button class="authButton" @click="register(email, password)">Register</button>
+      <h2 class="authText">
         Already have an user 
         <router-link class="link" to="/login">Sing In</router-link>
       </h2>
@@ -25,10 +25,9 @@
     import customAxios from '@/functions/axios/customAxios.js';
     import setTokenCookie from '@/functions/cookies/setTokenCookie.js';
     import router from '@/router/index.js';
-    import '@/assets/views/loginAndRegister.css';
-    import EnvelopeIcon from '@/components/icons/EnvelopeIcon.vue';
-    import LockIcon from '@/components/icons/LockIcon.vue';
-    import RegisterBackground from '@/components/icons/RegisterBackground.vue';
+    import EnvelopeIcon from '@/components/svgs/EnvelopeIcon.vue';
+    import LockIcon from '@/components/svgs/LockIcon.vue';
+    import RegisterBackground from '@/components/svgs/RegisterBackground.vue';
   </script>
   
   <script>

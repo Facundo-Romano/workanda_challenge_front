@@ -1,0 +1,68 @@
+.navbarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin: 0 0 100px 0;
+    padding: 0;
+    width: 100%;
+    min-height: 200px;
+}
+
+.navbarSubContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 30px 20px 50px 30px;
+    background-color: transparent;
+}
+
+.navbarMainSubContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.whiteLogoContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 120px 0 0;
+}
+
+.whiteLogo {
+    width: 70px;
+    height: 70px;
+    margin: 0 20px 0 0;
+}
+
+.textWhiteLogo{
+    color: var(--white);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.buttonIconNavbar {
+    margin: 0 5px 0 50px;
+    cursor: pointer;
+}
+
+.buttonTextNavbar {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navbarSecondarySubContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.secondaryButtonIconNavbar {
+    margin: 0 15px 0 0;
+    cursor: pointer;
+}

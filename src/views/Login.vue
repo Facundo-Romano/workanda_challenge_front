@@ -1,19 +1,19 @@
 <template>
-  <main class="main">
+  <main class="authContainer">
     <img src="/blue_circle_logo.svg" alt="logo" class="logo"/>
-    <h1 class="h1">Login</h1>
-    <div class="inputContainer" :class="{ inputContainerError: invalidEmail || loginError }">
+    <h1 class="authHeader">Login</h1>
+    <div class="authInputContainer" :class="{ authInputContainerError: invalidEmail || loginError }">
       <EnvelopeIcon :error="invalidEmail || loginError ? true : false" :filled="email ? true: false"/>
-      <input class="input" type="text" v-model="email" @input="handleInputChange" :class="{ error: invalidEmail || loginError }" placeholder="email" id="email"/>
+      <input class="authInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: invalidEmail || loginError }" placeholder="email" id="email"/>
     </div>
-    <label class="errorLabel" v-if="invalidEmail" for="email">Invalid email</label>
-    <div class="inputContainer" :class="{ inputContainerError: loginError }">
+    <label class="authErrorLabel" v-if="invalidEmail" for="email">Invalid email</label>
+    <div class="authInputContainer" :class="{ authInputContainerError: loginError }">
       <LockIcon :error="loginError" :filled="password ? true: false"/>
-      <input class="input" type="password" v-model="password" @input="handleInputChange" :class="{ error: loginError }" placeholder="password" id="password"/>
+      <input class="authInput" type="password" v-model="password" @input="handleInputChange" :class="{ authError: loginError }" placeholder="password" id="password"/>
     </div>
-    <p class="errorLabel" v-if="loginError">Incorrect credentials</p>
-    <button class="loginButton" @click="login(email, password)">Login</button>
-    <h2 class="h2">
+    <p class="authErrorLabel" v-if="loginError">Incorrect credentials</p>
+    <button class="authButton" @click="login(email, password)">Login</button>
+    <h2 class="authText">
       or 
       <router-link class="link" to="/register">Sing Up</router-link>
     </h2>
@@ -25,10 +25,9 @@
   import customAxios from '@/functions/axios/customAxios.js';
   import setTokenCookie from '@/functions/cookies/setTokenCookie.js';
   import router from '@/router';
-  import '@/assets/views/loginAndRegister.css';
-  import EnvelopeIcon from '@/components/icons/EnvelopeIcon.vue';
-  import LockIcon from '@/components/icons/LockIcon.vue';
-  import LoginBackground from '@/components/icons/LoginBackground.vue';
+  import EnvelopeIcon from '@/components/svgs/EnvelopeIcon.vue';
+  import LockIcon from '@/components/svgs/LockIcon.vue';
+  import LoginBackground from '@/components/svgs/LoginBackground.vue';
 </script>
 
 <script>
