@@ -25,10 +25,10 @@
     },
     mounted() {
       this.getUsers();
-      this.fetchInterval = setInterval(this.getUsers, 5000);
+      this.interval = setInterval(this.getUsers, 5000);
     },
     beforeUnmount() {
-      clearInterval(this.fetchInterval);
+      clearInterval(this.interval);
     },
     methods: {
       logout() {
