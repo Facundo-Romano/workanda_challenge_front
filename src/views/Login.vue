@@ -16,7 +16,7 @@
       <button class="authButton" @click="login(email, password)">Login</button>
       <h2 class="authText">
         or 
-        <router-link class="link" to="/register">Sing Up</router-link>
+        <router-link class="link" to="/register">Sign Up</router-link>
       </h2>
     </div>
     <LoginBackground class="background"/>

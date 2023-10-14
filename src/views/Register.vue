@@ -15,8 +15,8 @@
         <p class="authErrorLabel" v-if="registerError">Incorrect credentials</p>
         <button class="authButton" @click="register(email, password)">Register</button>
         <h2 class="authText">
-          Already have an user 
-          <router-link class="link" to="/login">Sing In</router-link>
+          Already have an user? 
+          <router-link class="link" to="/login">Sign In</router-link>
         </h2>
       </div>
       <RegisterBackground class="background"/>
