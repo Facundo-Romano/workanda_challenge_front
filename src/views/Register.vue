@@ -87,6 +87,15 @@
       EnvelopeIcon,
       LockIcon,
       RegisterBackground
-    }
+    },
+    metaInfo: {
+      title: 'Circle - Register',
+      meta: [
+        {
+          name: 'description',
+          content: 'Register for an account on Circle and get started with our platform.',
+        },
+      ],
+    },
   };
 </script>

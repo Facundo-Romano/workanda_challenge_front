@@ -99,6 +99,15 @@ export default {
     Navbar,
     EnvelopeIcon,
     LockIcon
-  }
+  },
+  metaInfo: {
+    title: 'Circle - New User',
+    meta: [
+      {
+        name: 'description',
+        content: 'Join our community by creating a new user account. Get started with Circle today!',
+      },
+    ],
+  },
 };
 </script>

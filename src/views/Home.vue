@@ -66,6 +66,15 @@
       Navbar,
       UserCard,
       PlusIcon
-    }
+    },
+    metaInfo: {
+      title: 'Circle - Home',
+      meta: [
+        {
+          name: 'description',
+          content: 'Explore the Circle - Home page and discover our vibrant community.',
+        },
+      ],
+    },
   };
 </script>
