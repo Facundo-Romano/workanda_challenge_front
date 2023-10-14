@@ -34,7 +34,6 @@
     mounted() {
       this.getUsers();
       this.interval = setInterval(this.getUsers, 5000);
-      this.interval = setInterval(getTokenCookie, 5000);
     },
     beforeUnmount() {
       clearInterval(this.interval);

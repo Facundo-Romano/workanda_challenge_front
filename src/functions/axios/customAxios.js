@@ -10,9 +10,4 @@ const customAxios = axios.create({
   },
 });
 
-customAxios.interceptors.request.use((config) => {
-  config.headers['Cookie'] = getTokenCookie();
-  return config;
-});
-
 export default customAxios;
