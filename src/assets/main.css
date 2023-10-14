@@ -3,6 +3,7 @@
 @import './components/navbar.css';
 @import './views/home.css';
 @import './components/userCard.css';
+@import './views/newUser.css';
 
 #app {
   display: flex;

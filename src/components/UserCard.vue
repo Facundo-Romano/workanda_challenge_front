@@ -8,10 +8,12 @@
             </div>
         </div>
         <div v-if="edit" class="userCardSecondarySubContainer">
-            <input class="userCardInput" type="text" v-model="email" placeholder="email" />
+            <input class="userCardInput" type="text" v-model="email" @input="handleInputChange" :class="{ authError: emailInvalid || emailAlreadyInUse }" placeholder="email" />
+            <label class="authErrorLabel" v-if="emailInvalid" for="email">Invalid email</label>
+            <label class="authErrorLabel" v-if="emailAlreadyInUse" for="email">Email already in use</label>
             <div class="userCardButtonsContainer">
                 <button class="userCardSaveButton" @click="save(index, user.id, email)">Save</button>
-                <button class="userCardCancelButton" @click="setEdit(false)">Cancel</button>
+                <button class="userCardCancelButton" @click="cancel()">Cancel</button>
             </div>
         </div>
         <div v-else class="userCardSecondarySubContainer">
@@ -32,7 +34,10 @@
         data() {
             return {
                 edit: false,
-                email: this.user.email
+                email: this.user.email,
+                initialEmail: this.user.email,
+                emailInvalid: false,
+                emailAlreadyInUse: false
             }
         },
         props: {
@@ -64,16 +69,23 @@
             },
             async save(index, id, email) {
                 try {
+                    const isEmailValid = this.validateEmail(email);
+
+                    if (!isEmailValid) {
+                        this.emailInvalid = true;
+                        return;
+                    }
+
                     this.updateUserLocally(index, email);
-
-                    this.edit = false;
-
+                    
                     await customAxios.patch('/users/update', { 
                         id,
                         email 
                     });
+
+                    this.edit = false;
                 } catch (err) {
-                    console.log(err);
+                    this.handleError(err);
                 }
             },
             async deleteUser(index, id) {
@@ -89,6 +101,25 @@
                 } catch (err) {
                     console.log(err);
                 }
+            },
+            handleError(err) {
+                if (err.response?.data?.message == 'Email already in use' && this.initialEmail !== this.email) {
+                    this.emailAlreadyInUse = true
+                }
+            },
+            handleInputChange() {
+                this.emailInvalid = false;
+                this.emailAlreadyInUse = false;
+            },
+            cancel() {
+                this.edit = false;
+                this.emailInvalid = false;
+                this.emailAlreadyInUse = false;
+            },
+            validateEmail(email) {
+                const emailValidationRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                
+                return emailValidationRegex.test(email);
             },
         },
         components: {
