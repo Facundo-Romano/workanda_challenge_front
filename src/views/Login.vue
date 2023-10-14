@@ -87,15 +87,6 @@
       EnvelopeIcon,
       LockIcon,
       LoginBackground
-    },
-    metaInfo: {
-      title: 'Circle - Login',
-      meta: [
-        {
-          name: 'description',
-          content: 'Sign in to your Circle account and access our platform with ease.',
-        },
-      ],
-    },
+    }
   };
 </script>
