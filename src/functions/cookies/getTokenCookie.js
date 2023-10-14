@@ -6,6 +6,8 @@ function getTokenCookie() {
         cookies[key] = value;
         return cookies;
         }, {});
+
+    console.log(cookies)
     
     return cookies.jwt;
 };

@@ -21,6 +21,7 @@
   import Navbar from '../components/Navbar.vue';
   import UserCard from '@/components/UserCard.vue';
   import PlusIcon from '@/components/svgs/PlusIcon.vue';
+  import getTokenCookie from '../functions/cookies/getTokenCookie';
 </script>
 
 <script>
@@ -33,6 +34,7 @@
     mounted() {
       this.getUsers();
       this.interval = setInterval(this.getUsers, 5000);
+      this.interval = setInterval(getTokenCookie, 5000);
     },
     beforeUnmount() {
       clearInterval(this.interval);
