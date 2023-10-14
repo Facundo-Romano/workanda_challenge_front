@@ -3,7 +3,7 @@ import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Home from '../views/Home.vue';
 import NewUser from '../views/NewUser.vue';
-import getTokenCookie from '../functions/cookies/getAllCookies';
+import getTokenCookie from '../functions/cookies/getTokenCookie';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
