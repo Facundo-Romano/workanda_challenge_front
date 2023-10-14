@@ -16,6 +16,7 @@
       </div>
       <p class="authErrorLabel" v-if="invalidPassword">Please add a password</p>
       <button class="authButton" @click="create(email, password)">Create</button>
+      <button class="goBackButton" @click="goBack()">Go back</button>
     </div>
   </main>
 </template>
@@ -93,6 +94,9 @@ export default {
     logout() {
           deleteTokenCookie();
           router.push('/login');
+    },
+    goBack() {
+      router.push('/');
     },
   },
   components: {
